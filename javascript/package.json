@@ -12,6 +12,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sinon": "^1.0.4",
     "mocha": "^2.3.0",
+    "phantomjs": "just-boris/phantomjs",
     "sinon": "^1.16.1"
   },
   "scripts": {
