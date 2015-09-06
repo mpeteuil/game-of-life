@@ -26,13 +26,14 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'game_of_life.js': ['coverage']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['dots'],
+    reporters: ['dots', 'coverage'],
 
 
     // web server port
@@ -65,7 +66,16 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-chai',
       'karma-sinon',
-      'karma-phantomjs-launcher'
-    ]
+      'karma-phantomjs-launcher',
+      'karma-coverage'
+    ],
+    coverageReporter: {
+      dir : 'coverage/',
+      subdir: '.',
+      reporters: [
+        {type: 'lcov'},
+        {type: 'text-summary'}
+      ]
+    }
   })
 }
