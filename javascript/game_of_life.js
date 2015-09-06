@@ -43,10 +43,10 @@ var gameOfLife = (function() {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    var random = [];
+    var random = new Array(n);
     var count = 0;
     while(count < n) {
-      random.push(getRandomIntInclusive(0, 1));
+      random[count] = getRandomIntInclusive(0, 1);
       ++count;
     }
 
@@ -188,10 +188,10 @@ var gameOfLife = (function() {
     //                       ]
     //
 
-    var newGrid = [];
+    var newGrid = new Array(grid.length);
 
     grid.forEach(function(row, y) {
-      newGrid.push([]);
+      newGrid[y] = [];
 
       row.forEach(function(cell, x) {
         var numLive = countLiveNeighbors(grid, { x: x, y: y });
@@ -214,7 +214,7 @@ var gameOfLife = (function() {
           cellNext = 0;
         }
 
-        newGrid[y].push(cellNext)
+        newGrid[y][x] = cellNext;
       })
     })
 
