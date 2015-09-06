@@ -43,7 +43,7 @@ var gameOfLife = (function() {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    var random = new Array(n);
+    var random = new Uint8Array(n);
     var count = 0;
     while(count < n) {
       random[count] = getRandomIntInclusive(0, 1);
@@ -191,7 +191,7 @@ var gameOfLife = (function() {
     var newGrid = new Array(grid.length);
 
     grid.forEach(function(row, y) {
-      newGrid[y] = [];
+      newGrid[y] = new Uint8Array(grid[y].length);
 
       row.forEach(function(cell, x) {
         var numLive = countLiveNeighbors(grid, { x: x, y: y });

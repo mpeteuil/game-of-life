@@ -28,9 +28,9 @@ describe("gameOfLife", function() {
 
   it("countLiveNeighbors returns the correct count", function() {
     var grid = [
-      [ 0, 1, 1 ],
-      [ 1, 0, 1 ],
-      [ 0, 0, 1 ]
+      Uint8Array.of(0, 1, 1),
+      Uint8Array.of(1, 0, 1),
+      Uint8Array.of(0, 0, 1)
     ];
 
     assert.equal(gameOfLife.countLiveNeighbors(grid, {x: 1, y: 0}), 3);
@@ -42,19 +42,19 @@ describe("gameOfLife", function() {
 
   it("step returns the next iteration of life", function() {
     var grid = [
-      [ 0, 1, 1, 1 ],
-      [ 1, 0, 1, 0 ],
-      [ 0, 0, 1, 1 ],
-      [ 1, 1, 0, 0 ]
+      Uint8Array.of(0, 1, 1, 1),
+      Uint8Array.of(1, 0, 1, 0),
+      Uint8Array.of(0, 0, 1, 1),
+      Uint8Array.of(1, 1, 0, 0)
     ];
 
     var grid2 = gameOfLife.step(grid);
 
     var expectedGrid2 = [
-      [ 0, 1, 1, 1 ],
-      [ 0, 0, 0, 0 ],
-      [ 1, 0, 1, 1 ],
-      [ 0, 1, 1, 0 ]
+      Uint8Array.of(0, 1, 1, 1),
+      Uint8Array.of(0, 0, 0, 0),
+      Uint8Array.of(1, 0, 1, 1),
+      Uint8Array.of(0, 1, 1, 0)
     ];
 
     assert.deepEqual(grid2[0], expectedGrid2[0], "First row matches");
