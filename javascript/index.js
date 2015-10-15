@@ -1,4 +1,4 @@
-var grid = gameOfLife.createGrid(20);
+var grid = gameOfLife.createGrid(75);
 var isBirthOfLife = true;
 
 var intervalId = setInterval(function life() {

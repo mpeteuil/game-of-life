@@ -64,8 +64,41 @@ var gameOfLife = (function() {
   //
 
   function render(grid) {
-    console.clear();
-    console.table(grid);
+    //
+    // Setup
+    //
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+
+    var numberOfCells = grid.length;
+    var cellSize = 10;
+    var sizeOfCanvas = numberOfCells * cellSize;
+
+    canvas.height = sizeOfCanvas;
+    canvas.width = sizeOfCanvas;
+
+    //
+    // Actual drawing
+    //
+    context.lineWidth = 0.5;
+
+    var y;
+    var x;
+    for(y = 0; y < numberOfCells; y++) {
+      for(x = 0; x < numberOfCells; x++) {
+
+        context.strokeStyle = '#c97243';
+
+        if (grid[y][x] === 1) {
+          context.fillStyle = '#56e5ff';
+        } else {
+          context.fillStyle = '#ffffff';
+        }
+
+        context.fillRect(cellSize * x, cellSize * y, cellSize, cellSize);
+        context.strokeRect(cellSize * x, cellSize * y, cellSize, cellSize);
+      }
+    }
   }
 
   var countLiveNeighbors = (function() {
